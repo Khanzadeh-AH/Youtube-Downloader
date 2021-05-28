@@ -17,7 +17,7 @@ async def stream(request: Request, link: str = Query(...)):
 
 
 @router.get('/download/')
-async def dl(link: str = Query(...), itag: int = Query(...)):
+async def dl(request: Request, link: str = Query(...), itag: int = Query(...)):
     yt = YouTube(link)
     dl_link = yt.streams.get_by_itag(itag).url
-    return {"dl_link": dl_link}
+    return templates.TemplateResponse("downloadpage.html", {"request": request, "dl_link": dl_link})
