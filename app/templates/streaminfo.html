@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+
+
+{% block body %}
+    {% for stream in streams %}
+        <p>{{ stream }}</p>
+    {% endfor %}
+
+{% endblock %}
