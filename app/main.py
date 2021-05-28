@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 
-from views import home, streaminfo
+from app.views import home, streaminfo
 
 app = FastAPI()
 
@@ -15,3 +15,4 @@ configure()
 
 if __name__ == "__main__":
     uvicorn.run(app, host='localhost', port=5000)
+

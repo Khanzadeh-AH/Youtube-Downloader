@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi.templating import Jinja2Templates
 from starlette.requests import Request
 
-templates = Jinja2Templates('templates')
+templates = Jinja2Templates('app/templates')
 
 router = APIRouter()
 
