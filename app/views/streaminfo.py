@@ -17,12 +17,7 @@ async def stream(request: Request, link: str = Query(...)):
 
 
 @router.get('/download/')
-async def dl(link: str = Query(...), itag: int = Query(...), path: Optional[str] = Query(None)):
+async def dl(link: str = Query(...), itag: int = Query(...)):
     yt = YouTube(link)
-    desired_stream = yt.streams.get_by_itag(itag)
-    if path:
-        desired_stream.download(path)
-    else:
-        desired_stream.download()
-    return {"success"}
-
+    dl_link = yt.streams.get_by_itag(itag).url
+    return {"dl_link": dl_link}
