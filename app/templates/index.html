@@ -11,19 +11,35 @@
 {% block body %}
     <form>
         <label>
-            <input id="link" type="text">
-            <button type="button" id="v_s_btn" onclick="goToStream()">view streams</button>
+            <input id="singlelink" type="text" placeholder="video link">
+            <input id="singleitag" type="text" placeholder="video itag">
+            <button type="button" id="singledownload" onclick="downloadSingle()">view streams</button>
+            <br>
+            <input id="playlistlink" type="text" placeholder="playlist link">
+            <input id="playlistitag" type="text" placeholder="playlist itag">
+            <button type="button" id="playlistdownload" onclick="downloadPlaylist()">view streams</button>
         </label>
 
     </form>
 
 
+
+
+
     <script>
-        function goToStream() {
-            const videoLink = document.getElementById("link").value;
+        function downloadSingle() {
+            const videoLink = document.getElementById("singlelink").value;
+            const videoitag = document.getElementById("singleitag").value;
             const current = window.location.href;
-            window.location.href = current + "streams/?link=" + videoLink;
+            window.location.href = current + "singledownload/?link=" + videoLink + "&itag=" + videoitag;
         }
+        function downloadPlaylist() {
+        const playlistLink = document.getElementById("playlistlink").value;
+        const playlistitag = document.getElementById("playlistitag").value;
+        const current = window.location.href;
+        window.location.href = current + "playlistdownload/?link=" + playlistLink + "&itag=" + playlistitag;
+        }
+
     </script>
 {% endblock %}
 
