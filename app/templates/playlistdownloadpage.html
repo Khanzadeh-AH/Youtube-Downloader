@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    <p>These are download links:</p>
+    {% for link in dl_links %}
+        <a href={{ link }}>Download link</a>
+        <br>
+    {% endfor %}
+
+{% endblock %}
