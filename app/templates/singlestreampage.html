@@ -1,0 +1,8 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    {% for i in range(stream_list| length) %}
+        <p>{{ stream_list[i] }}</p>
+        <a href="{{ stream_list[i].url }}">download link</a>
+    {% endfor %}
+{% endblock %}

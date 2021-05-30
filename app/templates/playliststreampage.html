@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block body %}
+    {% for title, stream in video_dict.items() %}
+        <p>{{ title }}</p>
+        {% for stream_obj in stream %}
+            <p>{{ stream_obj }}</p>
+            <a href="{{ stream_obj.url }}">dowload link</a>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

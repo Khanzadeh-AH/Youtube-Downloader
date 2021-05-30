@@ -12,11 +12,9 @@
     <form>
         <label>
             <input id="singlelink" type="text" placeholder="video link">
-            <input id="singleitag" type="text" placeholder="video itag">
             <button type="button" id="singledownload" onclick="downloadSingle()">view streams</button>
             <br>
             <input id="playlistlink" type="text" placeholder="playlist link">
-            <input id="playlistitag" type="text" placeholder="playlist itag">
             <button type="button" id="playlistdownload" onclick="downloadPlaylist()">view streams</button>
         </label>
 
@@ -29,15 +27,14 @@
     <script>
         function downloadSingle() {
             const videoLink = document.getElementById("singlelink").value;
-            const videoitag = document.getElementById("singleitag").value;
             const current = window.location.href;
-            window.location.href = current + "singledownload/?link=" + videoLink + "&itag=" + videoitag;
+            window.location.href = current + "singlestream/?link=" + videoLink;
         }
+
         function downloadPlaylist() {
-        const playlistLink = document.getElementById("playlistlink").value;
-        const playlistitag = document.getElementById("playlistitag").value;
-        const current = window.location.href;
-        window.location.href = current + "playlistdownload/?link=" + playlistLink + "&itag=" + playlistitag;
+            const playlistLink = document.getElementById("playlistlink").value;
+            const current = window.location.href;
+            window.location.href = current + "playliststream/?link=" + playlistLink;
         }
 
     </script>

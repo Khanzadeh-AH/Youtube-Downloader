@@ -9,14 +9,14 @@ router = APIRouter()
 
 
 @router.get('/singledownload/')
-async def dl(request: Request, link: str = Query(...), itag: int = Query(...)):
+async def sddownload(request: Request, link: str = Query(...), itag: int = Query(...)):
     yt = YouTube(link)
     dl_link = yt.streams.get_by_itag(itag).url
     return templates.TemplateResponse("singledownloadpage.html", {"request": request, "dl_link": dl_link})
 
 
 @router.get('/playlistdownload/')
-async def dl(request: Request, link: str = Query(...), itag: int = Query(...)):
+async def pdownload(request: Request, link: str = Query(...), itag: int = Query(...)):
     yt = Playlist(link)
     download_links = []
     for video in yt.videos:
